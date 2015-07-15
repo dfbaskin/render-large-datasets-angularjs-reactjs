@@ -271,11 +271,11 @@
 				// Provide some tooling to unmount and remount the data.
 				if ( this.props.isMounted ) {
 
-					var mountAction = <a onClick={ this.handleUnmount }>Unmount Grid</a>;
+					var mountAction = <a id="unmount-grid" onClick={ this.handleUnmount }>Unmount Grid</a>;
 
 				} else {
 
-					var mountAction = <a onClick={ this.handleRemount }>Remount Grid</a>;
+					var mountAction = <a id="remount-grid" onClick={ this.handleRemount }>Remount Grid</a>;
 
 				}
 

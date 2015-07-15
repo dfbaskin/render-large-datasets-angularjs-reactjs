@@ -31,8 +31,8 @@
 		</span>
 
     <!-- Provide tooling to unmount and remount the grid. -->
-    <a ng-if="vm.grid.length" ng-click="vm.unmountGrid()">Unmount Grid</a>
-    <a ng-if="! vm.grid.length" ng-click="vm.remountGrid()">Remount Grid</a>
+    <a id="unmount-grid" ng-if="vm.grid.length" ng-click="vm.unmountGrid()">Unmount Grid</a>
+    <a id="remount-grid" ng-if="! vm.grid.length" ng-click="vm.remountGrid()">Remount Grid</a>
 </form>
 
 <table width="100%" cellspacing="2" ng-class="{ filtered: vm.form.filter }">

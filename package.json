@@ -11,5 +11,9 @@
   },
   "dependencies": {
     "express": "^4.13.1"
+  },
+  "devDependencies": {
+    "benchpress": "^2.0.0-alpha.31",
+    "jasmine-core": "^2.3.4"
   }
 }
