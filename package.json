@@ -10,7 +10,11 @@
     "url": "https://github.com/dfbaskin/render-large-datasets-angularjs-reactjs"
   },
   "dependencies": {
-    "express": "^4.13.1"
+    "angular2": "^2.0.0-alpha.31",
+    "es6-shim": "^0.32.2",
+    "express": "^4.13.1",
+    "reflect-metadata": "^0.1.0",
+    "systemjs": "^0.18.4"
   },
   "devDependencies": {
     "benchpress": "^2.0.0-alpha.31",

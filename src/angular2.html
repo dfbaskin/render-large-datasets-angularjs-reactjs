@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8" />
+
+    <title>
+        Rendering Large Datasets With AngularJS (version 2)
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="./demo.css"></link>
+
 </head>
 <body>
+
+<h1>
+    Rendering Large Datasets With AngularJS (version 2)
+</h1>
+
+<my-app>
+    Loading ...
+</my-app>
+
+<script src="systemjs/system.src.js"></script>
+<script>
+    System.config({
+        defaultJSExtensions: true,
+        baseURL: '/',
+        map: {
+            crypto: '@empty'
+        },
+        paths: {
+            rx: "angular2/node_modules/rx/dist/rx.js"
+        }
+    });
+</script>
+<script>
+    System.import('angular2-app').catch(function(err) {
+        console.log("Error loading application:");
+        console.log(err);
+    });
+</script>
 
 </body>
 </html>
