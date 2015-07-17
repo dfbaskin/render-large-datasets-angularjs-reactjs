@@ -10,6 +10,7 @@ import {
     NgFor,
     NgIf,
     formDirectives,
+    CSSClass,
     bootstrap
 } from 'angular2/angular2';
 
@@ -17,7 +18,7 @@ import {
     selector: 'my-app'
 })
 @View({
-    directives: [NgFor, NgIf, formDirectives],
+    directives: [NgFor, NgIf, formDirectives, CSSClass],
     templateUrl: 'angular2-grid.html'
 })
 class MyAppComponent {

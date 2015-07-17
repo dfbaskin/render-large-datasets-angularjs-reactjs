@@ -103,7 +103,7 @@ var MyAppComponent = (function () {
             selector: 'my-app'
         }),
         angular2_1.View({
-            directives: [angular2_1.NgFor, angular2_1.NgIf, angular2_1.formDirectives],
+            directives: [angular2_1.NgFor, angular2_1.NgIf, angular2_1.formDirectives, angular2_1.CSSClass],
             templateUrl: 'angular2-grid.html'
         }), 
         __metadata('design:paramtypes', [])
