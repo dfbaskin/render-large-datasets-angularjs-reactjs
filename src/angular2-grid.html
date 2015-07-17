@@ -1,0 +1,35 @@
+<form>
+    <strong>Filter Data</strong>:
+    <input type="text" />
+
+    <!--
+        If the user is filtering the data, we want to offer some insight into
+        the breadth of the filtering.
+    -->
+    <span>
+        &mdash;
+        Filtering <strong>{{ form.filter }}</strong>
+        over {{ dataPoints }} data points,
+        {{ visibleCount }} found.
+    </span>
+
+    <!-- Provide tooling to unmount and remount the grid. -->
+    <a id="unmount-grid" (click)="unmountGrid()" *ng-if="grid.length" href="javascript:;">Unmount Grid</a>
+    <a id="remount-grid" (click)="remountGrid()" *ng-if="!grid.length" href="javascript:;">Remount Grid</a>
+</form>
+
+<!--ng-class="{ filtered: vm.form.filter }"-->
+<table width="100%" cellspacing="2" >
+    <tr *ng-for="#row of grid">
+        <td>
+            {{ row.id }}
+        </td>
+        <!--ng-class="{ hidden: item.isHiddenByFilter }"-->
+        <td
+                *ng-for="#item of row.items"
+                class="item"
+                >
+            {{ item.value }}
+        </td>
+    </tr>
+</table>
