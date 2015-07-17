@@ -18,10 +18,10 @@ describe('grid', function() {
         runner.sample({
             id: 'react-mount-grid',
             prepare: function () {
-                $('#unmount-grid').click();
+                return $('#unmount-grid').click();
             },
             execute: function() {
-                $('#remount-grid').click();
+                return $('#remount-grid').click();
             }
         }).then(done, done.fail);
     });

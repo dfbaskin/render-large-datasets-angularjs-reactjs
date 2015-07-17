@@ -12,16 +12,16 @@ describe('grid', function() {
 
     it('mount', function(done) {
 
-        browser.ignoreSynchronization = true;
+        browser.ignoreSynchronization = false;
         browser.get('http://localhost:5001/angular1.html');
 
         runner.sample({
             id: 'angular-1-mount-grid',
             prepare: function () {
-                $('#unmount-grid').click();
+                return $('#unmount-grid').click();
             },
             execute: function() {
-                $('#remount-grid').click();
+                return $('#remount-grid').click();
             }
         }).then(done, done.fail);
     });
