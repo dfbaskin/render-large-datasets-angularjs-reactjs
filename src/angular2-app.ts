@@ -9,6 +9,7 @@ import {
     View,
     NgFor,
     NgIf,
+    formDirectives,
     bootstrap
 } from 'angular2/angular2';
 
@@ -16,7 +17,7 @@ import {
     selector: 'my-app'
 })
 @View({
-    directives: [NgFor, NgIf],
+    directives: [NgFor, NgIf, formDirectives],
     templateUrl: 'angular2-grid.html'
 })
 class MyAppComponent {
@@ -50,7 +51,7 @@ class MyAppComponent {
 
     // I repopulate the grid with data. This will help separate processing
     // performance characteristics from page-load processing.
-    private remountGrid() {
+    remountGrid() {
 
         this.grid = this.generateGrid( 1000, 10 );
         this.dataPoints = ( this.grid.length * this.grid[ 0 ].items.length );
@@ -61,13 +62,51 @@ class MyAppComponent {
 
     // I clear the grid of data. This will help separate processing
     // performance characteristics from page-load processing.
-    private unmountGrid() {
+    unmountGrid() {
 
         this.grid = [];
         this.dataPoints = 0;
 
         this.visibleCount = 0;
         this.form.filter = "";
+    }
+
+    // I update the visibility of the items when the filter is updated.
+    handleFilterChange( newValue ) {
+
+        if(this.form.filter === newValue) {
+            return;
+        }
+        this.form.filter = newValue;
+
+        // Reset the visible count. As we iterate of the items checking
+        // for visibility, we can increment this count as necessary.
+        this.visibleCount = 0;
+
+        for ( var r = 0, rowCount = this.grid.length ; r < rowCount ; r++ ) {
+
+            var row = this.grid[ r ];
+
+            for ( var c = 0, columnCount = row.items.length ; c < columnCount ; c++ ) {
+
+                var item = row.items[ c ];
+
+                // The item is hidden if the given filter text cannot be
+                // found in the value of the item.
+                item.isHiddenByFilter = ( newValue && ( item.value.indexOf( newValue ) === -1 ) );
+
+                // If the item isn't hidden, track it as part of the visible
+                // set of data.
+                if ( ! item.isHiddenByFilter ) {
+
+                    this.visibleCount++;
+
+                }
+
+            }
+
+        }
+
     }
 
     private generateGrid( rowCount, columnCount ) {

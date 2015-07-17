@@ -1,6 +1,6 @@
 <form>
     <strong>Filter Data</strong>:
-    <input type="text" />
+    <input type="text" [ng-model]="form.filter" (ng-model)="handleFilterChange($event)" />
 
     <!--
         If the user is filtering the data, we want to offer some insight into
